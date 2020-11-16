@@ -6,5 +6,18 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.ACCESS_TOKEN,
+        downloadLocal: true,
+        environment: "dev",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-twitter`,
+    },
+  ],
 }
