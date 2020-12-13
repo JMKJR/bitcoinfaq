@@ -51,7 +51,7 @@ function Footer(props) {
             background:
               "linear-gradient(to right top, #eeaf61, #f2a85f, #f5a05f, #f89860, #fb9062)",
             borderRadius: "3px",
-            maxWidth: "530px",
+            maxWidth: "490px",
             minWidth: "350px",
             overflow: "hidden",
           }}
@@ -61,7 +61,7 @@ function Footer(props) {
             container
             style={{
               background: "#121B22",
-              maxWidth: "530px",
+              maxWidth: "490px",
               alignItems: "center",
               overflow: "hidden",
               borderRadius: "3px",
@@ -71,7 +71,7 @@ function Footer(props) {
               <img
                 src={qr}
                 style={{
-                  width: "150px",
+                  width: "125px",
                   height: "auto",
                   alt: "bitcoin qr code",
                   marginTop: "5px",

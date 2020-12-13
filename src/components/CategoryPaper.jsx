@@ -5,7 +5,6 @@ import { Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCoins } from "@fortawesome/free-solid-svg-icons"
-import background from "../subtle-carbon.png"
 
 CategoryPaper.propTypes = {
   title: PropTypes.string,
