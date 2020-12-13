@@ -5,6 +5,7 @@ import Question from "./Question"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
+import background from "../subtle-carbon.png"
 
 Category.propTypes = {
   categoryData: PropTypes.shape({
@@ -83,7 +84,14 @@ export default function Category(props) {
           borderRadius: "3px",
         }}
       >
-        <Box p={3} style={{ backgroundColor: "#121B23", borderRadius: "3px" }}>
+        <Box
+          p={3}
+          style={{
+            backgroundColor: "#121B23",
+            borderRadius: "3px",
+            //backgroundImage: `url(${background})`,
+          }}
+        >
           <Box mb={2}>
             <Grid item>
               <Typography

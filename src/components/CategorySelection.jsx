@@ -11,6 +11,11 @@ function CategorySelection(props) {
         allContentfulCategory(sort: { fields: order }) {
           nodes {
             title
+            icon {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -20,7 +25,7 @@ function CategorySelection(props) {
   return (
     <div
       style={{
-        background: "#100E17",
+        //background: "#100E17",
         padding: "16px",
         width: "100%",
       }}
@@ -34,7 +39,10 @@ function CategorySelection(props) {
             md={3}
             style={{ flex: "1 0 320px", maxWidth: "320px" }}
           >
-            <CategoryPaper title={category.title} />
+            <CategoryPaper
+              title={category.title}
+              icon={category.icon.file.url}
+            />
           </Grid>
         ))}
       </Grid>

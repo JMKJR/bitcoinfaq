@@ -3,6 +3,7 @@ import { Grid, Divider } from "@material-ui/core"
 import TwitterEmbed from "./TwitterEmbed"
 import qr from "../qr.png"
 import { useMediaQuery } from "react-responsive"
+import background from "../brilliant.png"
 
 function Footer(props) {
   const isDesktopOrLaptop = useMediaQuery({
@@ -27,6 +28,7 @@ function Footer(props) {
           textAlign: "center",
           padding: "10px",
           backgroundColor: "white",
+          backgroundImage: `url(${background})`,
         }}
       >
         <Grid item>
@@ -110,7 +112,7 @@ function Footer(props) {
           item
           xs={12}
           style={{
-            backgroundColor: "white",
+            //backgroundColor: "white",
             alignContent: "center",
           }}
         >

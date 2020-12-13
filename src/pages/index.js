@@ -5,12 +5,13 @@ import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import CategorySelection from "../components/CategorySelection"
 import logo from "../logo6.png"
+import background from "../dark-fish-skin.png"
 
 export default function Home() {
   document.body.style.backgroundColor = "#100E17"
 
   return (
-    <div className="App">
+    <div className="App" style={{}}>
       <CssBaseline />
       <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
@@ -30,9 +31,10 @@ export default function Home() {
           alignItems: "center",
           backgroundColor: "#100E17",
           textAlign: "center",
+          backgroundImage: `url(${background})`,
         }}
       >
-        <Box p={7} style={{ marginTop: "12px" }}>
+        <Box p={7} style={{}}>
           <img
             src={logo}
             alt="bitcoinfaq"

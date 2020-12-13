@@ -6,6 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails"
 import Typography from "@material-ui/core/Typography"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { makeStyles } from "@material-ui/core/styles"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 Question.propTypes = {
   questionData: PropTypes.shape({
@@ -53,7 +54,9 @@ export default function Question(props) {
       </AccordionSummary>
       <AccordionDetails className={classes.accordianAnswerColor}>
         <Typography align="left">
-          {questionData.answer.content[0].content[0].value}
+          {questionData.childContentfulQuestionAnswerRichTextNode.json.content.map(
+            document => documentToReactComponents(document)
+          )}
         </Typography>
       </AccordionDetails>
     </Accordion>

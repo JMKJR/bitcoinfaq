@@ -6,17 +6,18 @@ function Categories() {
   const data = useStaticQuery(
     graphql`
       query Content {
-        allContentfulCategory {
+        allContentfulCategory(sort: { fields: order }) {
           nodes {
-            title
             questions {
+              childContentfulQuestionAnswerRichTextNode {
+                json
+              }
               title
-              answer {
-                content {
-                  content {
-                    value
-                  }
-                }
+            }
+            title
+            icon {
+              file {
+                url
               }
             }
           }

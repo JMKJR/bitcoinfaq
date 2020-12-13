@@ -5,13 +5,15 @@ import { Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCoins } from "@fortawesome/free-solid-svg-icons"
+import background from "../subtle-carbon.png"
 
 CategoryPaper.propTypes = {
   title: PropTypes.string,
+  icon: PropTypes.object,
 }
 
 function CategoryPaper(props) {
-  const { title } = props
+  const { title, icon } = props
 
   const [isHovered, setHovered] = useState(false)
 
@@ -42,16 +44,16 @@ function CategoryPaper(props) {
             borderColor: "#324B51",
             cursor: "pointer",
             textAlign: "center",
+            //backgroundImage: `url(${background})`,
           }}
           elevation={isHovered ? 6 : 1}
           onMouseEnter={toggleHover}
           onMouseLeave={toggleHover}
         >
           <Box p={4}>
-            <FontAwesomeIcon
-              icon={faCoins}
-              size="3x"
-              style={{ color: "white" }}
+            <img
+              src={"https:" + icon}
+              style={{ color: "white", width: "50px", height: "auto" }}
             />
             <Typography
               style={{
