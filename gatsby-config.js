@@ -13,7 +13,7 @@ module.exports = {
         spaceId: process.env.SPACE_ID,
         accessToken: process.env.ACCESS_TOKEN,
         downloadLocal: true,
-        environment: "dev",
+        environment: process.env.ENVIRONMENT,
       },
     },
     {
