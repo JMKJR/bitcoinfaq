@@ -5,8 +5,8 @@ import AccordionSummary from "@material-ui/core/AccordionSummary"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
 import Typography from "@material-ui/core/Typography"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import { makeStyles } from "@material-ui/core/styles"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import styles from "./Question.module.css"
 
 Question.propTypes = {
   questionData: PropTypes.shape({
@@ -25,18 +25,7 @@ Question.propTypes = {
   }),
 }
 
-const useStyles = makeStyles(theme => ({
-  accordianQuestionColor: {
-    backgroundColor: "white",
-  },
-  accordianAnswerColor: {
-    backgroundColor: "#FAFBF5",
-  },
-  textColor: { color: "#3B3B3B" },
-}))
-
 export default function Question(props) {
-  const classes = useStyles()
   const { questionData } = props
 
   return (
@@ -45,19 +34,25 @@ export default function Question(props) {
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
         id="panel1a-header"
-        className={classes.accordianQuestionColor}
-        style={{ borderRadius: "3px" }}
+        style={{
+          borderRadius: "3px",
+          backgroundColor: "white",
+        }}
       >
-        <Typography className={classes.textColor}>
+        <Typography style={{ fontSize: "16px" }}>
           {questionData.title}
         </Typography>
       </AccordionSummary>
-      <AccordionDetails className={classes.accordianAnswerColor}>
-        <Typography align="left">
+      <AccordionDetails style={{ backgroundColor: "#FAFBF5" }}>
+        <div className={styles.answer}>
           {questionData.childContentfulQuestionAnswerRichTextNode.json.content.map(
-            document => documentToReactComponents(document)
+            (document, i) => (
+              <React.Fragment key={`${document.value}${i}`}>
+                {documentToReactComponents(document)}
+              </React.Fragment>
+            )
           )}
-        </Typography>
+        </div>
       </AccordionDetails>
     </Accordion>
   )

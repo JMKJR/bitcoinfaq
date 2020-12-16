@@ -1,9 +1,11 @@
 import React from "react"
 import { Grid, Divider } from "@material-ui/core"
 import TwitterEmbed from "./TwitterEmbed"
-import qr from "../qr.png"
 import { useMediaQuery } from "react-responsive"
 import background from "../brilliant.png"
+import styles from "./Footer.module.css"
+import BitcoinTipJar from "./BitcoinTipJar"
+import Disclaimer from "./Disclaimer"
 
 function Footer(props) {
   const isDesktopOrLaptop = useMediaQuery({
@@ -11,14 +13,7 @@ function Footer(props) {
   })
 
   return (
-    <div
-      style={{
-        marginTop: "75px",
-        background:
-          "linear-gradient(to right top, #eeaf61, #f2a85f, #f5a05f, #f89860, #fb9062)",
-        paddingTop: "2px",
-      }}
-    >
+    <div className={styles.footerBorder}>
       <Grid
         item
         container
@@ -43,84 +38,16 @@ function Footer(props) {
           />
         )}
 
-        <Grid
-          item
-          container
-          style={{
-            padding: "3px",
-            background:
-              "linear-gradient(to right top, #eeaf61, #f2a85f, #f5a05f, #f89860, #fb9062)",
-            borderRadius: "3px",
-            maxWidth: "490px",
-            minWidth: "350px",
-            overflow: "hidden",
-          }}
-        >
-          <Grid
-            item
-            container
-            style={{
-              background: "#121B22",
-              maxWidth: "490px",
-              alignItems: "center",
-              overflow: "hidden",
-              borderRadius: "3px",
-            }}
-          >
-            <Grid item style={{ flexGrow: 1 }}>
-              <img
-                src={qr}
-                style={{
-                  width: "125px",
-                  height: "auto",
-                  alt: "bitcoin qr code",
-                  marginTop: "5px",
-                }}
-              />
-            </Grid>
-            <Grid
-              item
-              style={{
-                flexGrow: 1,
-              }}
-            >
-              <p
-                style={{
-                  color: "white",
-                  fontFamily: "Titillium Web",
-                  fontSize: "30px",
-                  marginBottom: "0px",
-                  marginTop: "0px",
-                }}
-              >
-                Bitcoin Tip Jar
-              </p>
+        <BitcoinTipJar />
 
-              <p
-                style={{
-                  color: "white",
-                  fontSize: "15px",
-                  marginTop: "0px",
-                }}
-              >
-                bc1qjvctq5h9awxhz2z5s0c6lxvfm4zt4u86aw464e
-              </p>
-            </Grid>
-          </Grid>
-        </Grid>
         <Grid
           item
           xs={12}
           style={{
-            //backgroundColor: "white",
             alignContent: "center",
           }}
         >
-          <p>
-            All information is for educational purposes only and should not be
-            construed as investment advice.
-          </p>
-          <p>Copyright ©2020 John Michael Kuhn Jr.</p>
+          <Disclaimer />
         </Grid>
       </Grid>
     </div>

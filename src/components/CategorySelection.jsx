@@ -1,8 +1,8 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import { Grid } from "@material-ui/core"
-import CategoryPaper from "./CategoryPaper"
+import CategoryBtn from "./CategoryBtn"
 import { useStaticQuery } from "gatsby"
+import styles from "./CategorySelection.module.css"
 
 function CategorySelection(props) {
   const data = useStaticQuery(
@@ -23,14 +23,8 @@ function CategorySelection(props) {
   )
 
   return (
-    <div
-      style={{
-        //background: "#100E17",
-        padding: "16px",
-        width: "100%",
-      }}
-    >
-      <Grid item container spacing={2} justify={"center"}>
+    <div className={styles.responsiveCategorySelection}>
+      <Grid item container spacing={2} justify="center">
         {data.allContentfulCategory.nodes.map(category => (
           <Grid
             item
@@ -38,11 +32,9 @@ function CategorySelection(props) {
             sm={6}
             md={3}
             style={{ flex: "1 0 320px", maxWidth: "320px" }}
+            key={category.title}
           >
-            <CategoryPaper
-              title={category.title}
-              icon={category.icon.file.url}
-            />
+            <CategoryBtn title={category.title} icon={category.icon.file.url} />
           </Grid>
         ))}
       </Grid>

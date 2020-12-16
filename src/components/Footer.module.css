@@ -1,0 +1,12 @@
+.footerBorder {
+  margin-top: 75px;
+  background: linear-gradient(
+    to right top,
+    #eeaf61,
+    #f2a85f,
+    #f5a05f,
+    #f89860,
+    #fb9062
+  );
+  padding-top: 2px;
+}

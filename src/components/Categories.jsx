@@ -1,6 +1,7 @@
 import React from "react"
 import Category from "./Category"
 import { useStaticQuery, graphql } from "gatsby"
+import styles from "./Categories.module.css"
 
 function Categories() {
   const data = useStaticQuery(
@@ -40,9 +41,7 @@ function Categories() {
     return categories
   }
 
-  return (
-    <div style={{ margin: "0px", marginTop: "50px" }}>{renderCategories()}</div>
-  )
+  return <div className={styles.categoriesSeparation}>{renderCategories()}</div>
 }
 
 export default Categories

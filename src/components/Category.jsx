@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import Typography from "@material-ui/core/Typography"
 import Question from "./Question"
 import { Grid } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
 
 Category.propTypes = {
@@ -28,24 +27,8 @@ Category.propTypes = {
   }),
 }
 
-const useStyles = makeStyles({
-  gridBackgroundColor: {
-    backgroundColor: "#F1F1E6",
-  },
-  gridBorder: { borderRadius: "4px" },
-  borderColor: {
-    borderColor: "#324B51", // green
-    borderStyle: "rounded",
-    borderRadius: "3px",
-  },
-  textColor: { color: "#FFFFFF" },
-  titleFont: { fontFamily: "Titillium Web", textAlign: "center" },
-  paperBackground: { backgroundColor: "#121B23" },
-})
-
 export default function Category(props) {
   const { categoryData } = props
-  const classes = useStyles()
 
   function renderQuestions() {
     let questions = []
@@ -88,13 +71,16 @@ export default function Category(props) {
           style={{
             backgroundColor: "#121B23",
             borderRadius: "3px",
-            //backgroundImage: `url(${background})`,
           }}
         >
           <Box mb={2}>
             <Grid item>
               <Typography
-                className={`${classes.textColor} ${classes.titleFont}`}
+                style={{
+                  fontFamily: "Titillium Web",
+                  textAlign: "center",
+                  color: "#FFFFFF",
+                }}
                 variant="h4"
               >
                 {categoryData.title}

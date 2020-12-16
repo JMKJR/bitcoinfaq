@@ -1,0 +1,40 @@
+.btnBackground {
+  background: linear-gradient(
+    to right top,
+    #eeaf61,
+    #f2a85f,
+    #f5a05f,
+    #f89860,
+    #fb9062
+  );
+  padding: 2px;
+  border-radius: 3px;
+  transition: transform 0.3s ease-out;
+}
+
+.btnBackground:hover {
+  transform: translate(0, -5px);
+}
+
+.btn {
+  background-color: #121b23;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #324b51;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #62828180;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.icon {
+  color: white;
+  width: 50px;
+  height: auto;
+}

@@ -1,8 +1,9 @@
 import React from "react"
+import styles from "./TwitterEmbed.module.css"
 
 function TwitterEmbed(props) {
   return (
-    <div style={{ minWidth: "350px", marginBottom: "15px" }}>
+    <div className={styles.embedStyle}>
       <a
         className="twitter-timeline"
         href="https://twitter.com/JohnMichaelKuhn?ref_src=twsrc%5Etfw"
