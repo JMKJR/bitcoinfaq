@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core"
 import CategoryBtn from "./CategoryBtn"
 import { useStaticQuery } from "gatsby"
 import styles from "./CategorySelection.module.css"
+import { graphql } from "gatsby"
 
 function CategorySelection(props) {
   const data = useStaticQuery(

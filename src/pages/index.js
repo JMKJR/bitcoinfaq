@@ -5,6 +5,7 @@ import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import CategorySelection from "../components/CategorySelection"
 import logo from "../logo6.png"
+import styles from "./index.module.css"
 
 export default function Home() {
   return (
@@ -16,11 +17,7 @@ export default function Home() {
       />
       <main>
         <Box p={7}>
-          <img
-            src={logo}
-            alt="BitcoinFAQ"
-            style={{ width: "300px", height: "auto" }}
-          />
+          <img src={logo} alt="BitcoinFAQ" className={styles.logo} />
         </Box>
         <CategorySelection />
         <Categories />

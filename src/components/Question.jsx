@@ -3,10 +3,11 @@ import PropTypes from "prop-types"
 import Accordion from "@material-ui/core/Accordion"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
-import Typography from "@material-ui/core/Typography"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styles from "./Question.module.css"
+import { useMediaQuery } from "react-responsive"
+import { makeStyles } from "@material-ui/core/styles"
 
 Question.propTypes = {
   questionData: PropTypes.shape({
@@ -28,6 +29,17 @@ Question.propTypes = {
 export default function Question(props) {
   const { questionData } = props
 
+  const isMobile = useMediaQuery({
+    query: "(max-width: 425px)",
+  })
+
+  const useStyles = makeStyles({
+    responsiveAccordionSummary: {
+      justifyContent: isMobile ? "center" : "normal",
+    },
+  })
+  const classes = useStyles()
+
   return (
     <Accordion>
       <AccordionSummary
@@ -37,11 +49,13 @@ export default function Question(props) {
         style={{
           borderRadius: "3px",
           backgroundColor: "white",
+          fontSize: "16px",
+        }}
+        classes={{
+          content: classes.responsiveAccordionSummary,
         }}
       >
-        <Typography style={{ fontSize: "16px" }}>
-          {questionData.title}
-        </Typography>
+        {questionData.title}
       </AccordionSummary>
       <AccordionDetails style={{ backgroundColor: "#FAFBF5" }}>
         <div className={styles.answer}>
