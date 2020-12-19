@@ -4,8 +4,15 @@ import CategoryBtn from "./CategoryBtn"
 import { useStaticQuery } from "gatsby"
 import styles from "./CategorySelection.module.css"
 import { graphql } from "gatsby"
+import PropTypes from "prop-types"
+
+CategoryBtn.propTypes = {
+  onClick: PropTypes.func,
+}
 
 function CategorySelection(props) {
+  const { onClick } = props
+
   const data = useStaticQuery(
     graphql`
       query CategoryTitles {
@@ -35,7 +42,11 @@ function CategorySelection(props) {
             style={{ flex: "1 0 320px", maxWidth: "320px" }}
             key={category.title}
           >
-            <CategoryBtn title={category.title} icon={category.icon.file.url} />
+            <CategoryBtn
+              title={category.title}
+              icon={category.icon.file.url}
+              onClick={onClick}
+            />
           </Grid>
         ))}
       </Grid>

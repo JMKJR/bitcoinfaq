@@ -25,10 +25,11 @@ Category.propTypes = {
       })
     ),
   }),
+  onClick: PropTypes.func,
 }
 
 export default function Category(props) {
-  const { categoryData } = props
+  const { categoryData, onClick } = props
 
   function renderQuestions() {
     let questions = []
@@ -38,6 +39,7 @@ export default function Category(props) {
         <Question
           questionData={question}
           key={question.title.replace(/\s+/g, "-").toLowerCase()}
+          onClick={onClick}
         />
       )
     }

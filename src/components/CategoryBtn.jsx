@@ -7,15 +7,17 @@ import styles from "./CategoryBtn.module.css"
 CategoryBtn.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 function CategoryBtn(props) {
-  const { title, icon } = props
+  const { title, icon, onClick } = props
 
   return (
     <a
       href={`#${title.replace(/\s+/g, "-").toLowerCase()}`}
       className={styles.link}
+      onClick={() => onClick(title)}
     >
       <div className={styles.btnBackground}>
         <div className={styles.btn}>

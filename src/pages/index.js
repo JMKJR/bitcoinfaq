@@ -8,6 +8,11 @@ import logo from "../logo6.png"
 import styles from "./index.module.css"
 
 export default function Home() {
+  function handleClick(contentTitle) {
+    typeof window !== "undefined" &&
+      window.gtag("event", "click", { clicked: contentTitle })
+  }
+
   return (
     <div className="App">
       <CssBaseline />
@@ -19,8 +24,8 @@ export default function Home() {
         <Box p={7}>
           <img src={logo} alt="BitcoinFAQ" className={styles.logo} />
         </Box>
-        <CategorySelection />
-        <Categories />
+        <CategorySelection onClick={handleClick} />
+        <Categories onClick={handleClick} />
         <Footer />
       </main>
     </div>

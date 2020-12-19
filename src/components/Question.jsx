@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import Accordion from "@material-ui/core/Accordion"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
@@ -24,10 +24,12 @@ Question.propTypes = {
       ),
     }),
   }),
+  onClick: PropTypes.func,
 }
 
 export default function Question(props) {
-  const { questionData } = props
+  const [expanded, setExpanded] = useState(false)
+  const { questionData, onClick } = props
 
   const isMobile = useMediaQuery({
     query: "(max-width: 425px)",
@@ -41,7 +43,7 @@ export default function Question(props) {
   const classes = useStyles()
 
   return (
-    <Accordion>
+    <Accordion expanded={expanded}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -53,6 +55,10 @@ export default function Question(props) {
         }}
         classes={{
           content: classes.responsiveAccordionSummary,
+        }}
+        onClick={() => {
+          setExpanded(!expanded)
+          if (!expanded) onClick(questionData.title)
         }}
       >
         {questionData.title}

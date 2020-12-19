@@ -2,8 +2,15 @@ import React from "react"
 import Category from "./Category"
 import { useStaticQuery, graphql } from "gatsby"
 import styles from "./Categories.module.css"
+import PropTypes from "prop-types"
 
-function Categories() {
+Categories.propTypes = {
+  onClick: PropTypes.func,
+}
+
+function Categories(props) {
+  const { onClick } = props
+
   const data = useStaticQuery(
     graphql`
       query Content {
@@ -35,6 +42,7 @@ function Categories() {
         <Category
           categoryData={category}
           key={category.title.replace(/\s+/g, "-").toLowerCase()}
+          onClick={onClick}
         />
       )
     }
