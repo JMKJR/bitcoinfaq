@@ -8,6 +8,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styles from "./Question.module.css"
 import { useMediaQuery } from "react-responsive"
 import { makeStyles } from "@material-ui/core/styles"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
+import { INLINES } from "@contentful/rich-text-types"
 
 Question.propTypes = {
   questionData: PropTypes.shape({
@@ -30,6 +32,16 @@ Question.propTypes = {
 export default function Question(props) {
   const [expanded, setExpanded] = useState(false)
   const { questionData, onClick } = props
+
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => (
+        <OutboundLink href={node.data.uri} target="_blank">
+          {children}
+        </OutboundLink>
+      ),
+    },
+  }
 
   const isMobile = useMediaQuery({
     query: "(max-width: 425px)",
@@ -68,7 +80,7 @@ export default function Question(props) {
           {questionData.childContentfulQuestionAnswerRichTextNode.json.content.map(
             (document, i) => (
               <React.Fragment key={`${document.value}${i}`}>
-                {documentToReactComponents(document)}
+                {documentToReactComponents(document, options)}
               </React.Fragment>
             )
           )}
