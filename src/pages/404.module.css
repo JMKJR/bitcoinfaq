@@ -1,0 +1,13 @@
+.notFoundImage {
+  width: 300px;
+  height: auto;
+}
+
+.notFoundHeading {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.notFoundSubHeading {
+  margin-top: 0px;
+}
