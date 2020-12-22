@@ -28,5 +28,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-twitter`,
     },
+    `gatsby-plugin-react-helmet`,
   ],
 }

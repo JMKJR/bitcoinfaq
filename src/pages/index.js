@@ -6,6 +6,7 @@ import Box from "@material-ui/core/Box"
 import CategorySelection from "../components/CategorySelection"
 import logo from "../logo6.png"
 import styles from "./index.module.css"
+import { Helmet } from "react-helmet"
 
 export default function Home() {
   function handleClick(contentTitle) {
@@ -15,11 +16,18 @@ export default function Home() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>BitcoinFAQ - What is Bitcoin?</title>
+        <meta
+          name="description"
+          content="The most frequently asked Bitcoin questions, answered."
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <CssBaseline />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu&display=swap"
-        rel="stylesheet"
-      />
       <main>
         <Box p={7}>
           <img src={logo} alt="BitcoinFAQ" className={styles.logo} />
