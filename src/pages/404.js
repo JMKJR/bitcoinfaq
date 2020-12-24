@@ -2,6 +2,7 @@ import { Button, Grid } from "@material-ui/core"
 import React from "react"
 import { Helmet } from "react-helmet"
 import png404 from "../404white.png"
+import favicon from "../bitcoinFAQFavicon.png"
 import styles from "./404.module.css"
 
 function NotFound() {
@@ -9,6 +10,7 @@ function NotFound() {
     <React.Fragment>
       <Helmet>
         <title>404 | BitcoinFAQ</title>
+        <link rel="icon" href={favicon} />
         <link
           href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu&display=swap"
           rel="stylesheet"
