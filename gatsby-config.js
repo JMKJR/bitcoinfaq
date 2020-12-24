@@ -6,6 +6,9 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    siteUrl: "https://www.bitcoinfaq.io",
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -29,5 +32,12 @@ module.exports = {
       resolve: `gatsby-plugin-twitter`,
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.bitcoinfaq.io",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
   ],
 }
