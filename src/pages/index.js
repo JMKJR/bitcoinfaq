@@ -4,10 +4,11 @@ import Footer from "../components/Footer"
 import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import CategorySelection from "../components/CategorySelection"
-import logo from "../logo6.png"
+import logo from "../bitcoinFAQLogo.png"
 import styles from "./index.module.css"
 import { Helmet } from "react-helmet"
 import Konami from "react-konami-code"
+import favicon from "../bitcoinFAQFavicon.png"
 
 export default function Home() {
   function handleClick(contentTitle) {
@@ -23,6 +24,7 @@ export default function Home() {
           name="description"
           content="The most frequently asked Bitcoin questions, answered."
         />
+        <link rel="icon" href={favicon} />
         <link
           href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu&display=swap"
           rel="stylesheet"
