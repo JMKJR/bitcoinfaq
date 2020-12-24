@@ -1,8 +1,8 @@
 import React from "react"
-import Category from "./Category"
 import { useStaticQuery, graphql } from "gatsby"
-import styles from "./Categories.module.css"
 import PropTypes from "prop-types"
+import Category from "./Category"
+import styles from "./Categories.module.css"
 
 Categories.propTypes = {
   onClick: PropTypes.func,

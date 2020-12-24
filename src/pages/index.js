@@ -1,14 +1,14 @@
 import React from "react"
-import Categories from "../components/Categories"
 import Footer from "../components/Footer"
 import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
-import CategorySelection from "../components/CategorySelection"
-import logo from "../bitcoinFAQLogo.png"
-import styles from "./index.module.css"
 import { Helmet } from "react-helmet"
 import Konami from "react-konami-code"
+import logo from "../bitcoinFAQLogo.png"
 import favicon from "../bitcoinFAQFavicon.png"
+import styles from "./index.module.css"
+import Categories from "../components/Categories"
+import CategorySelection from "../components/CategorySelection"
 
 export default function Home() {
   function handleClick(contentTitle) {

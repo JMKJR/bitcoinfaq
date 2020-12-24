@@ -5,11 +5,11 @@ import AccordionSummary from "@material-ui/core/AccordionSummary"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import styles from "./Question.module.css"
 import { useMediaQuery } from "react-responsive"
 import { makeStyles } from "@material-ui/core/styles"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { INLINES } from "@contentful/rich-text-types"
+import styles from "./Question.module.css"
 
 Question.propTypes = {
   questionData: PropTypes.shape({

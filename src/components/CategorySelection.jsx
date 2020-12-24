@@ -1,10 +1,10 @@
 import React from "react"
 import { Grid } from "@material-ui/core"
-import CategoryBtn from "./CategoryBtn"
 import { useStaticQuery } from "gatsby"
-import styles from "./CategorySelection.module.css"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
+import styles from "./CategorySelection.module.css"
+import CategoryBtn from "./CategoryBtn"
 
 CategoryBtn.propTypes = {
   onClick: PropTypes.func,
