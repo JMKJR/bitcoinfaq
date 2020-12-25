@@ -18,7 +18,11 @@ export default function Home() {
 
   return (
     <div className="App">
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: "en",
+        }}
+      >
         <title>BitcoinFAQ - What is Bitcoin?</title>
         <meta
           name="description"
