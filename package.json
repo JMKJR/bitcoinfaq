@@ -3,7 +3,7 @@
   "private": true,
   "description": "A Gatsby statically generated website for answering frequently asked questions about Bitcoin.",
   "version": "0.1.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
