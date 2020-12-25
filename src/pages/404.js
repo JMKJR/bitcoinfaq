@@ -10,6 +10,8 @@ function NotFound() {
     <React.Fragment>
       <Helmet>
         <title>404 | BitcoinFAQ</title>
+        <meta property="og:image" content={favicon} />
+        <meta name="twitter:image" content={favicon} />
         <link rel="icon" href={favicon} />
       </Helmet>
       <Grid

@@ -28,6 +28,8 @@ export default function Home() {
           name="description"
           content="The most frequently asked Bitcoin questions, answered."
         />
+        <meta property="og:image" content={favicon} />
+        <meta name="twitter:image" content={favicon} />
         <link rel="icon" href={favicon} />
       </Helmet>
       <CssBaseline />
