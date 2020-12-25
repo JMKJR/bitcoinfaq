@@ -31,6 +31,11 @@ export default function Home() {
         <meta property="og:image" content={favicon} />
         <meta name="twitter:image" content={favicon} />
         <link rel="icon" href={favicon} />
+        <script
+          data-ad-client="ca-pub-6637229751524719"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
       </Helmet>
       <CssBaseline />
       <Konami
