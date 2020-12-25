@@ -13,4 +13,5 @@ main {
 @font-face {
   font-family: "Titillium Web";
   src: url("./src/TitilliumWeb-Regular.ttf");
+  font-display: swap;
 }
