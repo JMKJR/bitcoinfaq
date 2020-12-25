@@ -11,10 +11,6 @@ function NotFound() {
       <Helmet>
         <title>404 | BitcoinFAQ</title>
         <link rel="icon" href={favicon} />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu&display=swap"
-          rel="stylesheet"
-        />
       </Helmet>
       <Grid
         container

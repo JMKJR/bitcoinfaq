@@ -29,10 +29,6 @@ export default function Home() {
           content="The most frequently asked Bitcoin questions, answered."
         />
         <link rel="icon" href={favicon} />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu&display=swap"
-          rel="stylesheet"
-        />
       </Helmet>
       <CssBaseline />
       <Konami

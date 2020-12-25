@@ -9,3 +9,8 @@ main {
   text-align: center;
   background-image: url("./src/dark-fish-skin.png");
 }
+
+@font-face {
+  font-family: "Titillium Web";
+  src: url("./src/TitilliumWeb-Regular.ttf");
+}
