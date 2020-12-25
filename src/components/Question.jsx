@@ -36,7 +36,7 @@ export default function Question(props) {
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: (node, children) => (
-        <OutboundLink href={node.data.uri} target="_blank">
+        <OutboundLink href={node.data.uri} target="_blank" rel="noopener">
           {children}
         </OutboundLink>
       ),
