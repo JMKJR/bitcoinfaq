@@ -1,5 +1,6 @@
 import React from "react"
 import { Grid } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
 import { useStaticQuery } from "gatsby"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
@@ -10,8 +11,16 @@ CategoryBtn.propTypes = {
   onClick: PropTypes.func,
 }
 
+const useStyles = makeStyles({
+  btnGridItem: {
+    flex: "1 0 320px",
+    maxWidth: "320px",
+  },
+})
+
 function CategorySelection(props) {
   const { onClick } = props
+  const classes = useStyles()
 
   const data = useStaticQuery(
     graphql`
@@ -39,7 +48,7 @@ function CategorySelection(props) {
             xs={12}
             sm={6}
             md={3}
-            style={{ flex: "1 0 320px", maxWidth: "320px" }}
+            className={classes.btnGridItem}
             key={category.title}
           >
             <CategoryBtn

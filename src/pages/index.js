@@ -1,20 +1,29 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Footer from "../components/Footer"
 import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import { Helmet } from "react-helmet"
 import Konami from "react-konami-code"
-import logo from "../bitcoinFAQLogo.png"
-import favicon from "../bitcoinFAQFavicon.png"
-import styles from "./index.module.css"
+import logo from "../images/bitcoinFAQLogo.png"
+import favicon from "../images/bitcoinFAQFavicon.png"
 import Categories from "../components/Categories"
 import CategorySelection from "../components/CategorySelection"
 
-export default function Home() {
+export default function Home({ data }) {
   function handleClick(contentTitle) {
     typeof window !== "undefined" &&
       window.gtag("event", "click", { clicked: contentTitle })
   }
+
+  const sources = [
+    data.mobileImage.childImageSharp.fixed,
+    {
+      ...data.desktopImage.childImageSharp.fixed,
+      media: `(min-width: 426px)`,
+    },
+  ]
 
   return (
     <div className="App">
@@ -46,7 +55,7 @@ export default function Home() {
       />
       <main>
         <Box p={7}>
-          <img src={logo} alt="BitcoinFAQ" className={styles.logo} />
+          <Img fixed={sources} alt="BitcoinFAQ" className={logo} />
         </Box>
         <CategorySelection onClick={handleClick} />
         <Categories onClick={handleClick} />
@@ -55,3 +64,22 @@ export default function Home() {
     </div>
   )
 }
+
+export const query = graphql`
+  query {
+    mobileImage: file(relativePath: { eq: "bitcoinFAQLogo.png" }) {
+      childImageSharp {
+        fixed(height: 70) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    desktopImage: file(relativePath: { eq: "bitcoinFAQLogo.png" }) {
+      childImageSharp {
+        fixed(height: 100) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`

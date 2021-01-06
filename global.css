@@ -7,7 +7,7 @@ main {
   align-items: center;
   background-color: #100e17;
   text-align: center;
-  background-image: url("./src/dark-fish-skin.png");
+  background-image: url("./src/images/dark-fish-skin.png");
 }
 
 @font-face {

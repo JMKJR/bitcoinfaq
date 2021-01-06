@@ -1,6 +1,7 @@
 import React from "react"
 import { Box } from "@material-ui/core"
 import { Typography } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
 import styles from "./CategoryBtn.module.css"
 
@@ -10,8 +11,17 @@ CategoryBtn.propTypes = {
   onClick: PropTypes.func,
 }
 
+const useStyles = makeStyles({
+  btnTitle: {
+    fontFamily: "Titillium Web",
+    color: "white",
+    fontSize: "25px",
+  },
+})
+
 function CategoryBtn(props) {
   const { title, icon, onClick } = props
+  const classes = useStyles()
 
   return (
     <a
@@ -23,14 +33,7 @@ function CategoryBtn(props) {
         <div className={styles.btn}>
           <Box p={4}>
             <img src={"https:" + icon} className={styles.icon} alt={title} />
-            <Typography
-              style={{
-                fontFamily: "Titillium Web",
-                color: "white",
-                fontSize: "25px",
-              }}
-              variant="h4"
-            >
+            <Typography className={classes.btnTitle} variant="h4">
               {title}
             </Typography>
           </Box>
