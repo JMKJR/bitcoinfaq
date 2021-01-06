@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Typography from "@material-ui/core/Typography"
+import { makeStyles } from "@material-ui/core/styles"
 import { Grid } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import Question from "./Question"
@@ -28,8 +29,30 @@ Category.propTypes = {
   onClick: PropTypes.func,
 }
 
+const useStyles = makeStyles({
+  categoryContainer: {
+    marginBottom: "30px",
+  },
+  gradientBackground: {
+    background:
+      "linear-gradient(to right top, #eeaf61, #f2a85f, #f5a05f, #f89860, #fb9062)",
+    padding: "2px",
+    borderRadius: "3px",
+  },
+  paddedBox: {
+    backgroundColor: "#121B23",
+    borderRadius: "3px",
+  },
+  font: {
+    fontFamily: "Titillium Web",
+    textAlign: "center",
+    color: "#FFFFFF",
+  },
+})
+
 export default function Category(props) {
   const { categoryData, onClick } = props
+  const classes = useStyles()
 
   function renderQuestions() {
     let questions = []
@@ -50,7 +73,7 @@ export default function Category(props) {
     <Grid
       item
       container
-      style={{ marginBottom: "30px" }}
+      className={classes.categoryContainer}
       id={categoryData.title.replace(/\s+/g, "-").toLowerCase()}
     >
       <Grid item xs={false} sm={1} />
@@ -61,30 +84,12 @@ export default function Category(props) {
         xs={12}
         sm={10}
         direction="column"
-        style={{
-          background:
-            "linear-gradient(to right top, #eeaf61, #f2a85f, #f5a05f, #f89860, #fb9062)",
-          padding: "2px",
-          borderRadius: "3px",
-        }}
+        className={classes.gradientBackground}
       >
-        <Box
-          p={3}
-          style={{
-            backgroundColor: "#121B23",
-            borderRadius: "3px",
-          }}
-        >
+        <Box p={3} className={classes.paddedBox}>
           <Box mb={2}>
             <Grid item>
-              <Typography
-                style={{
-                  fontFamily: "Titillium Web",
-                  textAlign: "center",
-                  color: "#FFFFFF",
-                }}
-                variant="h4"
-              >
+              <Typography className={classes.font} variant="h4">
                 {categoryData.title}
               </Typography>
             </Grid>

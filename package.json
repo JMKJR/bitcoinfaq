@@ -20,6 +20,7 @@
     "@material-ui/styles": "^4.10.0",
     "gatsby": "^2.24.79",
     "gatsby-plugin-google-gtag": "^2.5.0",
+    "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-twitter": "^2.3.12",

@@ -1,5 +1,6 @@
 import React from "react"
 import { Grid, Divider } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
 import { useMediaQuery } from "react-responsive"
 import background from "../brilliant.png"
 import TwitterEmbed from "./TwitterEmbed"
@@ -7,7 +8,24 @@ import styles from "./Footer.module.css"
 import BitcoinTipJar from "./BitcoinTipJar"
 import Disclaimer from "./Disclaimer"
 
+const useStyles = makeStyles({
+  footerContainer: {
+    textAlign: "center",
+    padding: "10px",
+    backgroundColor: "white",
+    backgroundImage: `url(${background})`,
+  },
+  divider: {
+    marginTop: "30px",
+    marginBottom: "30px",
+  },
+  centeredContent: {
+    alignContent: "center",
+  },
+})
+
 function Footer(props) {
+  const classes = useStyles()
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
   })
@@ -19,12 +37,7 @@ function Footer(props) {
         container
         justify="space-evenly"
         alignItems="center"
-        style={{
-          textAlign: "center",
-          padding: "10px",
-          backgroundColor: "white",
-          backgroundImage: `url(${background})`,
-        }}
+        className={classes.footerContainer}
       >
         <Grid item>
           <TwitterEmbed />
@@ -34,19 +47,13 @@ function Footer(props) {
           <Divider
             orientation="vertical"
             flexItem
-            style={{ marginTop: "30px", marginBottom: "30px" }}
+            className={classes.divider}
           />
         )}
 
         <BitcoinTipJar />
 
-        <Grid
-          item
-          xs={12}
-          style={{
-            alignContent: "center",
-          }}
-        >
+        <Grid item xs={12} className={classes.centeredContent}>
           <Disclaimer />
         </Grid>
       </Grid>
