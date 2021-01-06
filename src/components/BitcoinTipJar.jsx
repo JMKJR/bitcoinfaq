@@ -1,7 +1,7 @@
 import React from "react"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import qr from "../qr.png"
+import qr from "../images/qr.png"
 import styles from "./BitcoinTipJar.module.css"
 
 const useStyles = makeStyles({

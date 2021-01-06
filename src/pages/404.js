@@ -2,8 +2,8 @@ import { Button, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import React from "react"
 import { Helmet } from "react-helmet"
-import png404 from "../404white.png"
-import favicon from "../bitcoinFAQFavicon.png"
+import png404 from "../images/404white.png"
+import favicon from "../images/bitcoinFAQFavicon.png"
 import styles from "./404.module.css"
 
 const useStyles = makeStyles({
