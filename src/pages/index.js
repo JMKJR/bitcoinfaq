@@ -1,6 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import Footer from "../components/Footer"
 import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
@@ -10,20 +8,13 @@ import logo from "../images/bitcoinFAQLogo.png"
 import favicon from "../images/bitcoinFAQFavicon.png"
 import Categories from "../components/Categories"
 import CategorySelection from "../components/CategorySelection"
+import styles from "./index.module.css"
 
-export default function Home({ data }) {
+export default function Home() {
   function handleClick(contentTitle) {
     typeof window !== "undefined" &&
       window.gtag("event", "click", { clicked: contentTitle })
   }
-
-  const sources = [
-    data.mobileImage.childImageSharp.fixed,
-    {
-      ...data.desktopImage.childImageSharp.fixed,
-      media: `(min-width: 426px)`,
-    },
-  ]
 
   return (
     <div className="App">
@@ -55,7 +46,7 @@ export default function Home({ data }) {
       />
       <main>
         <Box p={7}>
-          <Img fixed={sources} alt="BitcoinFAQ" className={logo} />
+          <img src={logo} alt="BitcoinFAQ" className={styles.logo} />
         </Box>
         <CategorySelection onClick={handleClick} />
         <Categories onClick={handleClick} />
@@ -64,22 +55,3 @@ export default function Home({ data }) {
     </div>
   )
 }
-
-export const query = graphql`
-  query {
-    mobileImage: file(relativePath: { eq: "bitcoinFAQLogo.png" }) {
-      childImageSharp {
-        fixed(height: 70) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    desktopImage: file(relativePath: { eq: "bitcoinFAQLogo.png" }) {
-      childImageSharp {
-        fixed(height: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
