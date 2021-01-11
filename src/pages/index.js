@@ -6,10 +6,12 @@ import { CssBaseline } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import { Helmet } from "react-helmet"
 import Konami from "react-konami-code"
+import { useMediaQuery } from "react-responsive"
 import logo from "../images/bitcoinFAQLogo.png"
 import favicon from "../images/bitcoinFAQFavicon.png"
 import Categories from "../components/Categories"
 import CategorySelection from "../components/CategorySelection"
+import styles from "./index.module.css"
 
 export default function Home({ data }) {
   function handleClick(contentTitle) {
@@ -17,13 +19,11 @@ export default function Home({ data }) {
       window.gtag("event", "click", { clicked: contentTitle })
   }
 
-  const sources = [
-    data.mobileImage.childImageSharp.fixed,
-    {
-      ...data.desktopImage.childImageSharp.fixed,
-      media: `(min-width: 426px)`,
-    },
-  ]
+  const sources = [data.mobileImage.childImageSharp.fixed]
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 425px)",
+  })
 
   return (
     <div className="App">
@@ -55,7 +55,11 @@ export default function Home({ data }) {
       />
       <main>
         <Box p={7}>
-          <Img fixed={sources} alt="BitcoinFAQ" className={logo} />
+          {isMobile ? (
+            <Img fixed={sources} alt="BitcoinFAQ" />
+          ) : (
+            <img src={logo} alt="BitcoinFAQ" className={styles.logo} />
+          )}
         </Box>
         <CategorySelection onClick={handleClick} />
         <Categories onClick={handleClick} />
@@ -70,13 +74,6 @@ export const query = graphql`
     mobileImage: file(relativePath: { eq: "bitcoinFAQLogo.png" }) {
       childImageSharp {
         fixed(height: 70) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    desktopImage: file(relativePath: { eq: "bitcoinFAQLogo.png" }) {
-      childImageSharp {
-        fixed(height: 100) {
           ...GatsbyImageSharpFixed
         }
       }
