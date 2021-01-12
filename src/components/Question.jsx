@@ -55,7 +55,10 @@ export default function Question(props) {
   const classes = useStyles()
 
   return (
-    <Accordion expanded={expanded}>
+    <Accordion
+      expanded={expanded}
+      id={questionData.title.replace(/\s+/g, "-").toLowerCase()}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -73,7 +76,7 @@ export default function Question(props) {
           if (!expanded) onClick(questionData.title)
         }}
       >
-        {questionData.title}
+        <h4 className={styles.question}>{questionData.title}</h4>
       </AccordionSummary>
       <AccordionDetails style={{ backgroundColor: "#FAFBF5" }}>
         <div className={styles.answer}>
