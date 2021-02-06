@@ -23,10 +23,10 @@ export default function Home() {
           lang: "en",
         }}
       >
-        <title>BitcoinFAQ - What is Bitcoin?</title>
+        <title>What is Bitcoin? What gives Bitcoin value? | BitcoinFAQ</title>
         <meta
           name="description"
-          content="The most frequently asked Bitcoin questions, answered."
+          content="How does Bitcoin work? What is Bitcoin used for? People aren't spending Bitcoin? How does Bitcoin Mining work?"
         />
         <meta property="og:image" content={favicon} />
         <meta name="twitter:image" content={favicon} />
