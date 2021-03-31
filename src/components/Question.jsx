@@ -56,6 +56,11 @@ export default function Question(props) {
 
   return (
     <Accordion
+      className={
+        !expanded
+          ? `${styles.accordianBackground}`
+          : `${styles.orangeBackground}`
+      }
       expanded={expanded}
       id={questionData.title.replace(/\s+/g, "-").toLowerCase()}
     >
@@ -65,12 +70,16 @@ export default function Question(props) {
         id="panel1a-header"
         style={{
           borderRadius: "3px",
-          backgroundColor: "white",
           fontSize: "16px",
         }}
         classes={{
           content: classes.responsiveAccordionSummary,
         }}
+        className={
+          !expanded
+            ? `${styles.highlight}`
+            : `${styles.expandedQuestionBackground}`
+        }
         onClick={() => {
           setExpanded(!expanded)
           if (!expanded) onClick(questionData.title)

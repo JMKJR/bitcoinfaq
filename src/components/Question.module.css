@@ -6,3 +6,31 @@
 .question {
   margin: 0px;
 }
+
+.highlight {
+  background-color: white;
+  color: black;
+}
+
+.highlight:hover {
+  background-color: #eeaf61;
+  color: white;
+}
+
+.accordianBackground {
+  color: black;
+}
+
+.accordianBackground:hover {
+  background-color: #eeaf61;
+}
+
+.orangeBackground {
+  background-color: #eeaf61 !important;
+}
+
+.expandedQuestionBackground {
+  /* props are flagged as important to override material ui accordian styles */
+  background-color: #eeaf61 !important;
+  color: white !important;
+}
